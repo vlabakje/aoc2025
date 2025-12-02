@@ -4,12 +4,12 @@ Working on [Advent of Code 2025](https://adventofcode.com/2025/)!
 
 All c++ this year
 
-![](https://img.shields.io/badge/stars%20⭐-2-yellow) ![](https://img.shields.io/badge/days%20completed-1-red)
+![](https://img.shields.io/badge/stars%20⭐-4-yellow) ![](https://img.shields.io/badge/days%20completed-2-red)
 
 | day | Problem             | Part one                 | Part two                 | Stars won                                            |
 |----:|:--------------------|:-------------------------|:-------------------------|:-----------------------------------------------------|
 |  01 | Secret Entrance     | [**one**](day01/one.cpp) | [**two**](day01/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
-|  02 |                     | [**one**](day02/one.cpp) | [**two**](day02/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
+|  02 | Gift Shop           | [**one**](day02/one.cpp) | [**two**](day02/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
 |  03 |                     | [**one**](day03/one.cpp) | [**two**](day03/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
 |  04 |                     | [**one**](day04/one.cpp) | [**two**](day04/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
 |  05 |                     | [**one**](day05/one.cpp) | [**two**](day05/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
