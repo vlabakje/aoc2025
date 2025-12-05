@@ -4,7 +4,7 @@ Working on [Advent of Code 2025](https://adventofcode.com/2025/)!
 
 All c++ this year
 
-![](https://img.shields.io/badge/stars%20⭐-8-yellow) ![](https://img.shields.io/badge/days%20completed-4-red)
+![](https://img.shields.io/badge/stars%20⭐-10-yellow) ![](https://img.shields.io/badge/days%20completed-5-red)
 
 | day | Problem             | Part one                 | Part two                 | Stars won                                            |
 |----:|:--------------------|:-------------------------|:-------------------------|:-----------------------------------------------------|
@@ -12,7 +12,7 @@ All c++ this year
 |  02 | Gift Shop           | [**one**](day02/one.cpp) | [**two**](day02/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
 |  03 | Lobby               | [**one**](day03/one.cpp) | [**two**](day03/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
 |  04 | Printing Department | [**one**](day04/one.cpp) | [**two**](day04/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
-|  05 |                     | [**one**](day05/one.cpp) | [**two**](day05/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
+|  05 | Cafeteria           | [**one**](day05/one.cpp) | [**two**](day05/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
 |  06 |                     | [**one**](day06/one.cpp) | [**two**](day06/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-1-yellow) |
 |  07 |                     | [**one**](day07/one.cpp) | [**two**](day07/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
 |  08 |                     | [**one**](day08/one.cpp) | [**two**](day08/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
