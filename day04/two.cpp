@@ -1,0 +1,156 @@
+#include <algorithm>
+#include <iostream>
+#include <fstream>
+#include <optional>
+#include <vector>
+#include <sstream>
+#include <set>
+#include <string>
+#include <utility>
+#include <print>
+
+class Grid {
+	private:
+		std::vector<std::string> grid;
+		// helper class for grid[x][y] access
+		class GridColumn {
+			private:
+				std::vector<std::string>& grid;
+				size_t col;
+
+			public:
+				GridColumn(std::vector<std::string>& g, size_t c) : grid(g), col(c) {}
+
+				// operator overload
+				char & operator[](size_t row) {
+					if (row >= grid.size()) {
+						throw std::out_of_range("row out of bounds");
+					}
+					if (col >= grid[0].size()) {
+						throw std::out_of_range("col out of bounds");
+					}
+					return grid[row][col];
+				}
+		};
+
+		class ConstGridColumn {
+			private:
+				const std::vector<std::string>& grid;
+				size_t col;
+
+			public:
+				ConstGridColumn(const std::vector<std::string>& g, size_t c) : grid(g), col(c) {}
+
+				// operator overload
+				const char & operator[](size_t row) const {
+					if (row >= grid.size()) {
+						throw std::out_of_range("row out of bounds");
+					}
+					if (col >= grid[0].size()) {
+						throw std::out_of_range("col out of bounds");
+					}
+					return grid[row][col];
+				}
+		};
+	public:
+		// constructor from vector of lines
+		Grid(const std::vector<std::string>& lines) {
+			grid = lines;
+			if (lines.empty()) {
+				throw std::invalid_argument("empty grid :(");
+			}
+			for (const auto& line: lines) {
+				if (line.size() != this->getCols()) {
+					throw std::invalid_argument("line lenghts not equal");
+				}
+			}
+		}
+
+		size_t getRows() const {
+			return grid.size();
+		}
+
+		size_t getCols() const {
+			return grid[0].size();
+		}
+
+		// element access
+		GridColumn operator[](size_t col) {
+			return GridColumn(grid, col);
+		}
+
+		ConstGridColumn operator[](size_t col) const {
+			return ConstGridColumn(grid, col);
+		}
+
+		int removed_rolls() {
+			for (size_t x=0; x < this->getCols(); ++x) {
+                for (size_t y=0; y< this->getRows(); ++y) {
+					if ((*this)[x][y] != '@') continue;
+					// how many rolls are around me?
+					if (rolls_around(x, y) < 4) (*this)[x][y] = 'x';
+				}
+			}
+			int output = 0;
+			for (size_t x=0; x < this->getCols(); ++x) {
+                for (size_t y=0; y< this->getRows(); ++y) {
+					if ((*this)[x][y] == 'x'){
+						(*this)[x][y] = '.';
+						output++;
+					} 
+				}
+			}
+			return output;			
+		}
+
+		int rolls_around(int x, int y) {
+			int rolls = 0;
+			for (int dx: {-1, 0, 1}){
+				for (int dy: {-1, 0, 1}){
+					if (dx == 0 && dy == 0) continue;
+					if (off_edge(x, y, dx, dy)) continue;
+					if ((*this)[x+dx][y+dy] != '.') rolls++;
+				}
+			}
+			return rolls;
+		}
+
+        bool off_edge(int x, int y, int dx, int dy){
+            if (x+dx < 0 or y+dy < 0){
+                return true;
+            }
+            if (x+dx >= static_cast<int>(this->getCols()) or y+dy >= static_cast<int>(this->getRows())) {
+                return true;
+            }
+			return false;
+        }
+};
+
+int removed_rolls_total(const std::string& filename) {
+	std::ifstream file(filename);
+	if (!file) {
+		throw std::runtime_error("No such file: " + filename);
+	}
+
+	std::vector<std::string> lines;
+	std::string line;
+	while (std::getline(file, line)) {
+		lines.push_back(line);
+	}
+
+	Grid grid = Grid(lines);
+	int removed = 1;
+	int total = 0;
+	while (removed != 0) {
+		removed = grid.removed_rolls();
+		std::print("removed: {}\n", removed);
+		total += removed;
+	}
+    return total;
+}
+
+int main() {
+	std::cout << removed_rolls_total("example") << std::endl;
+	std::cout << removed_rolls_total("input") << std::endl;
+	return 0;
+}
