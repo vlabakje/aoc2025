@@ -1,11 +1,8 @@
-#include <iostream>
 #include <fstream>
 #include <vector>
-#include <sstream>
-#include <string>
 #include <print>
-#include <cctype> // for std::isspace
-#include <cstdlib> // for std::system (optional, for testing)
+#include <algorithm>
+#include <numeric>
 
 using Row = std::string;
 using Table = std::vector<Row>;
@@ -23,12 +20,9 @@ void read_file(const std::string& filename, Table& table) {
 }
 
 std::int64_t problem(const std::vector<std::int64_t>& values, char op){
-    std::int64_t total = op == '*';
-    for (auto v : values){
-        if (op == '+') total += v;
-        else total *= v;
-    }
-    return total;
+    if (op == '+') return std::accumulate(values.begin(), values.end(), 0);
+    if (op == '*') return std::ranges::fold_left(values, 1, std::multiplies<>());
+    throw std::runtime_error("unsupported operator " + op);
 }
 
 std::int64_t problems(const std::string& filename){
@@ -37,27 +31,22 @@ std::int64_t problems(const std::string& filename){
     std::int64_t total = 0;
     std::vector<std::int64_t> values;
     std::string column;
-    bool skip = false;
     for (int n=table[0].size()-1; n>=0; n--){
-        if (skip){
-            skip = false;
-            continue;
-        }
         for (int i=0; i<table.size()-1; i++) column += table[i][n];
+        if (std::ranges::all_of(column, [](char c){ return c == ' '; })) continue;
         // std::print("converting: '{}'\n", column);
         values.push_back(std::stoll(column));
         column = "";
         if (table.back()[n] != ' '){
             total += problem(values, table.back()[n]);
             values = {};
-            skip = true; // ugly
-        }        
+        }
     }
     return total;
 }
 
 int main() {
-	std::cout << problems("example") << std::endl;
-	std::cout << problems("input") << std::endl;
+    std::println("{}", problems("example"));
+    std::println("{}", problems("input"));
 	return 0;
 }
