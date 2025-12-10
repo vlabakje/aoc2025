@@ -4,7 +4,7 @@ Working on [Advent of Code 2025](https://adventofcode.com/2025/)!
 
 All c++ this year
 
-![](https://img.shields.io/badge/stars%20⭐-14-yellow) ![](https://img.shields.io/badge/days%20completed-7-red)
+![](https://img.shields.io/badge/stars%20⭐-16-yellow) ![](https://img.shields.io/badge/days%20completed-8-red)
 
 | day | Problem             | Part one                 | Part two                 | Stars won                                            |
 |----:|:--------------------|:-------------------------|:-------------------------|:-----------------------------------------------------|
@@ -15,7 +15,7 @@ All c++ this year
 |  05 | Cafeteria           | [**one**](day05/one.cpp) | [**two**](day05/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
 |  06 | Trash Compactor     | [**one**](day06/one.cpp) | [**two**](day06/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
 |  07 | Laboratories        | [**one**](day07/one.cpp) | [**two**](day07/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
-|  08 |                     | [**one**](day08/one.cpp) | [**two**](day08/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
+|  08 | Playground          | [**one**](day08/one.cpp) | [**two**](day08/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
 |  09 |                     | [**one**](day09/one.cpp) | [**two**](day09/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
 |  10 |                     | [**one**](day10/one.cpp) | [**two**](day10/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
 |  11 |                     | [**one**](day11/one.cpp) | [**two**](day11/two.cpp) | ![](https://img.shields.io/badge/stars%20⭐-2-yellow) |
